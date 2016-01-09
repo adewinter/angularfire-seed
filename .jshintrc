@@ -1,5 +1,6 @@
 {
   "globalstrict": true,
+  "quotmark": false,
   "globals": {
     "angular": false
   }

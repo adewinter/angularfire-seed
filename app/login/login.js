@@ -24,6 +24,20 @@ angular.module('myApp.login', ['firebase.utils', 'firebase.auth', 'ngRoute'])
         });
     };
 
+    $scope.googleLogin = function () {
+      var googleLoginOptions = {scope: "email, profile"};
+      Auth.$authWithOAuthRedirect("google", function (error) {
+        console.log('Attempting to login to google with $authWithOAuthRedirect()');
+        if (error) {
+          console.log('There was an error with $authWithOAuthRedirect():', error);
+        }  
+      }, googleLoginOptions);
+    };
+
+    $scope.googleLogout = function () {
+      Auth.$unauth();
+    };
+
     $scope.createAccount = function() {
       $scope.err = null;
       if( assertValidAccountProps() ) {

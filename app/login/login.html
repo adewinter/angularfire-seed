@@ -1,6 +1,7 @@
 
 <h2>Login Page</h2>
-
+<h3>Auth Data:</h3>
+<pre>{{authData | json}}</pre>
 <form>
     <label>
         <span>email</span>
@@ -21,4 +22,7 @@
 
     <p ng-show="err" class="error">{{err}}</p>
 </form>
+<br />
+<button ng-click="googleLogin()" ng-hide="authData">Login with Google</button>
+<button ng-click="googleLogout()" ng-show="authData">Logout of Google</button>
 
